@@ -58,7 +58,7 @@ nav.scrolled{height:56px;background:rgba(6,11,24,0.95)}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem;opacity:0;animation:fadeSlideUp 0.6s 0.3s forwards}
 .hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 2s infinite}
 .hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:700;line-height:1.06;color:var(--white);letter-spacing:-0.025em;margin-bottom:0.75rem;opacity:0;animation:fadeSlideUp 0.6s 0.5s forwards}
-.hero-name-line2{color:var(--amber);display:block}
+.hero-name-line2{display:inline-block;margin-left:0.2em}
 .hero-roles{font-family:'JetBrains Mono',monospace;font-size:clamp(0.95rem,2vw,1.2rem);color:var(--text-muted);margin-bottom:1.75rem;min-height:1.8em;opacity:0;animation:fadeSlideUp 0.6s 0.7s forwards}
 .cursor-blink{display:inline-block;width:2px;height:1em;background:var(--amber);margin-left:2px;animation:blink 0.9s infinite;vertical-align:middle}
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
@@ -134,22 +134,25 @@ section{padding:100px 5vw;position:relative;z-index:1}
 .tl-bullets li::before{content:'▸';position:absolute;left:0;color:var(--amber);font-size:0.6rem;top:0.3rem}
 #projects{background:var(--bg2)}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;cursor:default}
-.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--amber2),transparent);opacity:0;transition:opacity 0.3s}
-.project-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(240,165,0,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s}
-.project-card:hover{border-color:rgba(240,165,0,0.25);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.4)}
+.project-card{background:linear-gradient(165deg,var(--surface) 0%,var(--bg3) 130%);border:1px solid var(--border);border-radius:18px;padding:1.9rem 2rem 1.75rem;position:relative;overflow:hidden;transition:all 0.45s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;cursor:default;box-shadow:0 1px 0 rgba(255,255,255,0.02) inset,0 12px 24px -18px rgba(0,0,0,0.6)}
+.project-card::before{content:'';position:absolute;top:0;left:1.6rem;right:1.6rem;height:1px;background:linear-gradient(90deg,transparent,rgba(240,165,0,0.55),transparent);opacity:0;transition:opacity 0.4s}
+.project-card::after{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;background:linear-gradient(135deg,rgba(240,165,0,0.35),transparent 35%,transparent 70%,rgba(0,212,255,0.12));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity 0.4s;pointer-events:none}
+.project-card:hover{border-color:rgba(240,165,0,0.32);box-shadow:0 24px 48px -18px rgba(0,0,0,0.65),0 0 0 1px rgba(240,165,0,0.06)}
 .project-card:hover::before{opacity:1}
 .project-card:hover::after{opacity:1}
-.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
-.project-icon{width:42px;height:42px;border-radius:10px;background:var(--amber-glow);display:flex;align-items:center;justify-content:center;font-size:1.3rem;border:1px solid rgba(240,165,0,0.15)}
-.project-badge{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--amber);background:var(--amber-glow);padding:0.2rem 0.55rem;border-radius:20px;border:1px solid rgba(240,165,0,0.2)}
-.project-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;color:var(--white);margin-bottom:0.5rem}
-.project-desc{color:var(--text-muted);font-size:0.85rem;line-height:1.65;margin-bottom:1.25rem;flex:1}
-.project-stack{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.25rem}
-.stack-tag{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--text-dim);background:var(--bg3);padding:0.18rem 0.5rem;border-radius:4px;border:1px solid var(--border)}
-.project-links{display:flex;gap:0.75rem}
-.proj-link{color:var(--text-muted);text-decoration:none;font-size:0.78rem;display:flex;align-items:center;gap:0.3rem;transition:color 0.2s}
-.proj-link:hover{color:var(--amber)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.35rem;gap:0.75rem}
+.project-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(145deg,var(--amber-glow),rgba(240,165,0,0.02));display:flex;align-items:center;justify-content:center;font-size:1.35rem;border:1px solid rgba(240,165,0,0.18);box-shadow:0 2px 8px rgba(240,165,0,0.08) inset}
+.project-badge{font-family:'JetBrains Mono',monospace;font-size:0.6rem;font-weight:500;letter-spacing:0.03em;color:var(--amber);background:var(--amber-glow);padding:0.32rem 0.7rem;border-radius:20px;border:1px solid rgba(240,165,0,0.22);white-space:nowrap;margin-top:0.15rem}
+.project-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.12rem;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.65rem;line-height:1.3}
+.project-desc{color:var(--text-muted);font-size:0.855rem;line-height:1.75;margin-bottom:1.5rem;flex:1}
+.project-divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin-bottom:1.1rem}
+.project-stack{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem}
+.stack-tag{font-family:'JetBrains Mono',monospace;font-size:0.64rem;font-weight:500;letter-spacing:0.01em;color:var(--text-muted);background:rgba(255,255,255,0.02);padding:0.28rem 0.65rem;border-radius:20px;border:1px solid var(--border);transition:all 0.25s}
+.project-card:hover .stack-tag{border-color:rgba(255,255,255,0.08)}
+.stack-tag:hover{border-color:rgba(240,165,0,0.4);color:var(--amber);background:var(--amber-glow)}
+.project-links{display:flex;gap:0.75rem;padding-top:1.1rem;border-top:1px solid var(--border)}
+.proj-link{color:var(--text);text-decoration:none;font-size:0.78rem;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem;transition:all 0.25s;padding:0.5rem 0.9rem;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+.proj-link:hover{color:var(--amber);border-color:rgba(240,165,0,0.35);background:var(--amber-glow);transform:translateX(2px)}
 .research-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;transition:all 0.3s}
 .research-card:hover{border-color:rgba(240,165,0,0.25);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
 .research-badge-stack{display:flex;flex-direction:column;gap:0.5rem}
@@ -231,9 +234,131 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
   .hero-photo-ring{width:200px;height:200px}
   .hero-photo-img{width:184px;height:184px}
 }
+
+/* ===== ADVANCED MOTION & UI LAYER ===== */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}
+}
+
+.grain-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.mesh-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.mesh-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.5;will-change:transform}
+.mesh-blob.m1{width:520px;height:520px;background:radial-gradient(circle,rgba(240,165,0,0.10),transparent 70%);top:8%;left:-8%;animation:meshDrift1 22s ease-in-out infinite}
+.mesh-blob.m2{width:460px;height:460px;background:radial-gradient(circle,rgba(0,212,255,0.07),transparent 70%);top:55%;right:-10%;animation:meshDrift2 26s ease-in-out infinite}
+.mesh-blob.m3{width:380px;height:380px;background:radial-gradient(circle,rgba(255,190,60,0.06),transparent 70%);bottom:2%;left:30%;animation:meshDrift3 30s ease-in-out infinite}
+@keyframes meshDrift1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,40px) scale(1.08)}66%{transform:translate(-30px,70px) scale(0.95)}}
+@keyframes meshDrift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,-50px) scale(1.12)}}
+@keyframes meshDrift3{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(40px,-60px) scale(1.05)}80%{transform:translate(-50px,20px) scale(0.9)}}
+
+.cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:2;background:radial-gradient(circle,rgba(240,165,0,0.05) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity 0.3s;opacity:0;will-change:transform}
+.cursor-glow.active{opacity:1}
+
+.btn-primary,.btn-outline,.nav-cta{will-change:transform}
+
+.tilt-card{transform-style:preserve-3d;transition:transform 0.15s cubic-bezier(.2,.8,.2,1),border-color 0.3s,box-shadow 0.3s;will-change:transform}
+.tilt-card-inner{transform:translateZ(24px)}
+
+.hero-name .char{display:inline-block;opacity:0;transform:translateY(0.6em) rotateX(-40deg);animation:charReveal 0.7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes charReveal{to{opacity:1;transform:translateY(0) rotateX(0)}}
+
+.section-title-wrap{position:relative;display:inline-block}
+.title-underline{position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--amber),var(--amber2));transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.section-title-wrap.visible .title-underline{width:100%}
+
+.timeline::before{background:var(--border)}
+.timeline-progress{position:absolute;left:16px;top:8px;width:1px;height:0;background:linear-gradient(to bottom,var(--amber),var(--amber2));transition:height 1.6s cubic-bezier(.2,.8,.2,1);z-index:0;box-shadow:0 0 8px rgba(240,165,0,0.5)}
+
+.skill-bar-fill{position:relative;overflow:hidden}
+.skill-bar-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);width:40px;animation:shimmerSweep 2.2s ease-in-out infinite;animation-delay:1.4s}
+@keyframes shimmerSweep{0%{transform:translateX(-60px)}100%{transform:translateX(320px)}}
+
+.hero-photo-wrap{animation-fill-mode:forwards}
+.hero-photo-ring{animation:photoFloat 6s ease-in-out infinite}
+@keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.project-card:hover .project-icon{transform:rotate(-8deg) scale(1.08);transition:transform 0.4s cubic-bezier(.2,.8,.2,1)}
+.project-icon{transition:transform 0.4s cubic-bezier(.2,.8,.2,1)}
+
+.ach-card:hover .ach-icon{transform:scale(1.12) rotate(4deg)}
+.ach-icon{transition:transform 0.35s cubic-bezier(.34,1.56,.64,1)}
+
+.btn-primary,.btn-outline{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);transform:scale(0);animation:rippleAnim 0.6s ease-out;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(3);opacity:0}}
+
+.stat-item{transition:transform 0.3s}
+.stat-item:hover{transform:translateY(-3px)}
+
+.hero-socials-rail .rail-link{opacity:0;transform:translateY(8px);animation:railIn 0.5s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-socials-rail .rail-link:nth-child(2){animation-delay:1.6s}
+.hero-socials-rail .rail-link:nth-child(3){animation-delay:1.7s}
+.hero-socials-rail .rail-link:nth-child(4){animation-delay:1.8s}
+.hero-socials-rail .rail-link:nth-child(5){animation-delay:1.9s}
+@keyframes railIn{to{opacity:1;transform:translateY(0)}}
+
+.research-card.visible{animation:cardGlowPulse 1.8s ease-out}
+@keyframes cardGlowPulse{0%{box-shadow:0 0 0 0 rgba(240,165,0,0)}30%{box-shadow:0 0 40px 4px rgba(240,165,0,0.12)}100%{box-shadow:0 0 0 0 rgba(240,165,0,0)}}
+
+.reveal,.reveal-left,.reveal-right{transition:opacity 0.8s cubic-bezier(.2,.8,.2,1),transform 0.8s cubic-bezier(.2,.8,.2,1),filter 0.8s cubic-bezier(.2,.8,.2,1)}
+.reveal,.reveal-left,.reveal-right{filter:blur(4px)}
+.reveal.visible,.reveal-left.visible,.reveal-right.visible{filter:blur(0)}
+
+.hero-eyebrow-dot{position:relative}
+.hero-eyebrow-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--amber);opacity:0;animation:eyebrowPing 2.4s ease-out infinite}
+@keyframes eyebrowPing{0%{opacity:0.6;transform:scale(0.6)}80%{opacity:0}100%{opacity:0;transform:scale(1.8)}}
+
+/* ===== STARFIELD ===== */
+.star-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;display:block}
+
+/* ===== DYNAMIC GRADIENT COLOR SYSTEM ===== */
+@keyframes gradientFlow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.gradient-text{
+  background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2),var(--amber));
+  background-size:300% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradientFlow 6s ease infinite;
+}
+.hero-name-line2{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2),var(--amber));background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientFlow 6s ease infinite}
+.section-label{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2),var(--amber));background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientFlow 7s ease infinite}
+.section-label::after{background:linear-gradient(90deg,var(--amber),var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 7s ease infinite}
+.title-underline{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 4s ease infinite}
+.btn-primary{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
+.btn-primary::before{display:none}
+.nav-cta{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
+.form-btn{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
+.r-badge.springer{background:linear-gradient(90deg,rgba(255,140,0,0.15),rgba(0,212,255,0.1),rgba(255,140,0,0.15));background-size:300% auto;animation:gradientFlow 6s ease infinite}
+@media (prefers-reduced-motion: reduce){
+  .gradient-text,.hero-name-line2,.section-label,.section-label::after,.title-underline,.btn-primary,.nav-cta,.form-btn,.r-badge.springer{animation:none}
+}
+
+/* ===== NAME VIBRATION (glitch tic) ===== */
+.name-vibrate-wrap{display:inline-block;animation:nameVibrate 4.6s ease-in-out infinite 2.6s}
+@keyframes nameVibrate{
+  0%,89%,100%{transform:translate(0,0);text-shadow:none}
+  90%{transform:translate(-2px,1px);text-shadow:-2px 0 rgba(0,212,255,0.6),2px 0 rgba(240,165,0,0.6)}
+  91%{transform:translate(2px,-1px);text-shadow:2px 0 rgba(0,212,255,0.6),-2px 0 rgba(240,165,0,0.6)}
+  92%{transform:translate(-1px,-2px);text-shadow:-1px 0 rgba(0,212,255,0.6),1px 0 rgba(240,165,0,0.6)}
+  93%{transform:translate(1px,2px);text-shadow:1px 0 rgba(0,212,255,0.5),-1px 0 rgba(240,165,0,0.5)}
+  94%{transform:translate(-2px,0);text-shadow:-2px 0 rgba(0,212,255,0.5),2px 0 rgba(240,165,0,0.5)}
+  95%{transform:translate(2px,1px);text-shadow:1px 0 rgba(0,212,255,0.4),-1px 0 rgba(240,165,0,0.4)}
+  96%{transform:translate(0,-1px);text-shadow:none}
+  97%,98%{transform:translate(0,0);text-shadow:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .name-vibrate-wrap{animation:none}
+}
 </style>
 </head>
 <body>
+<canvas id="starCanvas" class="star-canvas"></canvas>
+<div class="mesh-bg"><div class="mesh-blob m1"></div><div class="mesh-blob m2"></div><div class="mesh-blob m3"></div></div>
+<div class="grain-overlay"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 <div class="reading-progress" id="readingProgress"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -247,7 +372,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#060b18" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Vishva<div class="nav-logo-dot"></div></a>
+  <a href="#" class="nav-logo">Vishva M<div class="nav-logo-dot"></div></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -272,7 +397,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>Available for Internships · Madurai, India</div>
-      <h1 class="hero-name glitch" data-text="Vishva M">Vishva <span class="hero-name-line2"></span></h1>
+      <h1 class="hero-name" data-text="Vishva M">Vishva <span class="hero-name-line2"></span></h1>
       <div class="hero-roles"><span id="typed-text"></span><span class="cursor-blink"></span></div>
       <p class="hero-desc">Final-year B.Tech AI &amp; Data Science student targeting AI Engineer roles focused on LLM systems, RAG architectures, and MLOps. I build deployed products, publish research, and lead teams — from agentic RAG pipelines powering national hackathons to full-stack platforms used by entire institutions.</p>
       <div class="hero-stats">
@@ -338,7 +463,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="about">
   <div class="reveal">
     <div class="section-label">01 — About</div>
-    <h2 class="section-title">Who I Am</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Who I Am</h2><div class="title-underline"></div></div>
     <p class="section-sub">Builder, researcher, and team lead studying AI &amp; Data Science at SRM Madurai.</p>
   </div>
   <div class="about-grid">
@@ -384,10 +509,11 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="experience">
   <div class="reveal">
     <div class="section-label">02 — Experience</div>
-    <h2 class="section-title">Where I've Worked</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Where I've Worked</h2><div class="title-underline"></div></div>
     <p class="section-sub">Four internships across space tech, enterprise BI, data analytics, and full-stack — before graduating.</p>
   </div>
-  <div class="timeline">
+  <div class="timeline" id="timelineWrap">
+    <div class="timeline-progress" id="timelineProgress"></div>
     <div class="tl-item reveal"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-content"><div class="tl-header"><div><div class="tl-role">Winter Technical Training Intern</div><div class="tl-company">India Space Lab (Skill India) · NASA · JAXA · UN-GGIM</div></div><div class="tl-period">Feb – Mar 2026</div></div><ul class="tl-bullets"><li>Selected among ~500 participants nationally for a Skill India initiative affiliated with NASA, JAXA, and UN-GGIM Academic Network.</li><li>Completed specialized modules in Advanced Drone Technology, CanSat &amp; CubeSat, Rocketry Science, Remote Sensing &amp; GIS, and Disaster Management.</li><li>Built foundational knowledge in satellite systems and geospatial analysis applicable to AI-driven remote sensing pipelines.</li></ul></div></div>
     <div class="tl-item reveal"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-content"><div class="tl-header"><div><div class="tl-role">IBM Cognos Analytics Intern (Virtual)</div><div class="tl-company">AdroIT Technologies Innovative Solutions Pvt. Ltd.</div></div><div class="tl-period">Dec 2025 – Feb 2026</div></div><ul class="tl-bullets"><li>Built dashboards, reports, and data visualizations for business intelligence use cases using IBM Cognos Analytics.</li><li>Designed interactive Cognos drill-through dashboards over structured datasets for operational decision-making.</li><li>Gained hands-on experience in enterprise BI tooling, data modelling, and end-to-end reporting pipelines.</li></ul></div></div>
     <div class="tl-item reveal"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-content"><div class="tl-header"><div><div class="tl-role">Data Analytics Intern</div><div class="tl-company">Adhoc Softwares Pvt. Ltd. (ISO 9001:2015) · Coimbatore</div></div><div class="tl-period">Jun – Aug 2025</div></div><ul class="tl-bullets"><li>Executed end-to-end analytics workflows across 3+ business datasets — data collection, cleaning, EDA, and reporting.</li><li>Automated recurring summaries using Python (Pandas), reducing manual reporting time by ~40%.</li><li>Flagged 2 pricing anomalies in real-time business data that were subsequently actioned by management.</li></ul></div></div>
@@ -397,25 +523,25 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="projects">
   <div class="reveal">
     <div class="section-label">03 — Projects</div>
-    <h2 class="section-title">Things I've Built</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Things I've Built</h2><div class="title-underline"></div></div>
     <p class="section-sub">Real code. Real deployment. Real impact.</p>
   </div>
   <div class="projects-grid">
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">🔁</div><span class="project-badge">🛠️ Ongoing · Final-Year</span></div><div class="project-name">Autonomous MLOps Platform</div><div class="project-desc">Closed-loop, self-retraining LLM pipeline for a support-ticket classifier: production feedback capture, automated data pipelines, LoRA fine-tuning, and challenger-vs-champion evaluation gating with auto-deploy and rollback. Serving as Model &amp; Evaluation lead on a 3-member team over a compressed 12-week timeline; designed an adversarial promotion-gate test that injects corrupted feedback data to prove the gate blocks a regressed model from shipping.</div><div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">Docker</span><span class="stack-tag">MLflow</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">LoRA</span><span class="stack-tag">Weights &amp; Biases</span><span class="stack-tag">CI/CD</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">📄</div><span class="project-badge">🚀 Deployed</span></div><div class="project-name">MemoDoc</div><div class="project-desc">Institutional event report generator deployed at SRM Madurai. 250+ reports, zero manual formatting. Led a 5-member agile team; cut generation time from ~2 hours to under 5 minutes. Role-based JWT auth, 30-sheet structured exports.</div><div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Django</span><span class="stack-tag">MongoDB Atlas</span><span class="stack-tag">JWT</span><span class="stack-tag">jsPDF</span><span class="stack-tag">Netlify</span><span class="stack-tag">Render</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">🏥</div><span class="project-badge">⚡ IIT KGP Hackathon</span></div><div class="project-name">MediQuery</div><div class="project-desc">Agentic clinical RAG system built at The Arch: RAG and Agentic AI Hackathon, IIT Kharagpur (Healthcare Track), as team lead directing a 3-member team. 6-node LangGraph pipeline (planner, retriever, grader, rewriter, generator, confidence scorer) over 36 WHO/NIH reference documents — took evaluation pass rate from 2/8 to 7/8 queries, validated with a 20-query adversarial stress test (75% pass rate).</div><div class="project-stack"><span class="stack-tag">LangGraph</span><span class="stack-tag">Ollama</span><span class="stack-tag">LLaMA3</span><span class="stack-tag">FAISS</span><span class="stack-tag">S-PubMedBert</span><span class="stack-tag">Streamlit</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">🔍</div><span class="project-badge">Multi-Modal</span></div><div class="project-name">Misinformation Detection</div><div class="project-desc">Multi-modal fake news detection covering text, images, and video. Fine-tuned HuggingFace transformer; integrated OpenCV visual consistency checks for image/video misinformation signals.</div><div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">scikit-learn</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">OpenCV</span><span class="stack-tag">NLP</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">💬</div><span class="project-badge">Offline AI</span></div><div class="project-name">AI Chatbot &amp; Translator</div><div class="project-desc">Fully offline conversational AI and multi-language translator powered by locally hosted LLM via LM Studio. Context-aware prompt templates improved coherence by ~35% vs zero-shot baseline.</div><div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">LM Studio</span><span class="stack-tag">LLaMA</span><span class="stack-tag">Mistral</span><span class="stack-tag">Prompt Engineering</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
-    <div class="project-card stagger-child"><div class="project-header"><div class="project-icon">🎵</div><span class="project-badge">UI/UX · Behance</span></div><div class="project-name">Beatnook</div><div class="project-desc">End-to-end UI/UX design for a music streaming platform. Focus on user engagement, accessibility, and visual hierarchy. Full case study published on Behance.</div><div class="project-stack"><span class="stack-tag">Figma</span><span class="stack-tag">UI/UX</span><span class="stack-tag">Prototyping</span><span class="stack-tag">Case Study</span></div><div class="project-links"><a href="https://www.behance.net/gallery/192780411/Beatnook/modules/1090550999" target="_blank" class="proj-link">🎨 View on Behance</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">🔁</div><span class="project-badge">🛠️ Ongoing · Final-Year</span></div><div class="project-name">Autonomous MLOps Platform</div><div class="project-desc">Closed-loop, self-retraining LLM pipeline for a support-ticket classifier: production feedback capture, automated data pipelines, LoRA fine-tuning, and challenger-vs-champion evaluation gating with auto-deploy and rollback. Serving as Model &amp; Evaluation lead on a 3-member team over a compressed 12-week timeline; designed an adversarial promotion-gate test that injects corrupted feedback data to prove the gate blocks a regressed model from shipping.</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">Docker</span><span class="stack-tag">MLflow</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">LoRA</span><span class="stack-tag">Weights &amp; Biases</span><span class="stack-tag">CI/CD</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">📄</div><span class="project-badge">🚀 Deployed</span></div><div class="project-name">MemoDoc</div><div class="project-desc">Institutional event report generator deployed at SRM Madurai. 250+ reports, zero manual formatting. Led a 5-member agile team; cut generation time from ~2 hours to under 5 minutes. Role-based JWT auth, 30-sheet structured exports.</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Django</span><span class="stack-tag">MongoDB Atlas</span><span class="stack-tag">JWT</span><span class="stack-tag">jsPDF</span><span class="stack-tag">Netlify</span><span class="stack-tag">Render</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">🏥</div><span class="project-badge">⚡ IIT KGP Hackathon</span></div><div class="project-name">MediQuery</div><div class="project-desc">Agentic clinical RAG system built at The Arch: RAG and Agentic AI Hackathon, IIT Kharagpur (Healthcare Track), as team lead directing a 3-member team. 6-node LangGraph pipeline (planner, retriever, grader, rewriter, generator, confidence scorer) over 36 WHO/NIH reference documents — took evaluation pass rate from 2/8 to 7/8 queries, validated with a 20-query adversarial stress test (75% pass rate).</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">LangGraph</span><span class="stack-tag">Ollama</span><span class="stack-tag">LLaMA3</span><span class="stack-tag">FAISS</span><span class="stack-tag">S-PubMedBert</span><span class="stack-tag">Streamlit</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">🔍</div><span class="project-badge">Multi-Modal</span></div><div class="project-name">Misinformation Detection</div><div class="project-desc">Multi-modal fake news detection covering text, images, and video. Fine-tuned HuggingFace transformer; integrated OpenCV visual consistency checks for image/video misinformation signals.</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">scikit-learn</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">OpenCV</span><span class="stack-tag">NLP</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">💬</div><span class="project-badge">Offline AI</span></div><div class="project-name">AI Chatbot &amp; Translator</div><div class="project-desc">Fully offline conversational AI and multi-language translator powered by locally hosted LLM via LM Studio. Context-aware prompt templates improved coherence by ~35% vs zero-shot baseline.</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">LM Studio</span><span class="stack-tag">LLaMA</span><span class="stack-tag">Mistral</span><span class="stack-tag">Prompt Engineering</span></div><div class="project-links"><a href="https://github.com/Vishvaleon" target="_blank" class="proj-link">⚡ GitHub</a></div></div>
+    <div class="project-card stagger-child tilt-card"><div class="project-header"><div class="project-icon">🎵</div><span class="project-badge">UI/UX · Behance</span></div><div class="project-name">Beatnook</div><div class="project-desc">End-to-end UI/UX design for a music streaming platform. Focus on user engagement, accessibility, and visual hierarchy. Full case study published on Behance.</div><div class="project-divider"></div><div class="project-stack"><span class="stack-tag">Figma</span><span class="stack-tag">UI/UX</span><span class="stack-tag">Prototyping</span><span class="stack-tag">Case Study</span></div><div class="project-links"><a href="https://www.behance.net/gallery/192780411/Beatnook/modules/1090550999" target="_blank" class="proj-link">🎨 View on Behance</a></div></div>
   </div>
 </section>
 <section id="research">
   <div class="reveal">
     <div class="section-label">04 — Research</div>
-    <h2 class="section-title">Published Work</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Published Work</h2><div class="title-underline"></div></div>
     <p class="section-sub">First-authored a Springer publication as a first-year B.Tech student.</p>
   </div>
-  <div class="research-card reveal">
+  <div class="research-card reveal tilt-card">
     <div class="research-badge-stack"><span class="r-badge springer">Springer</span><span class="r-badge first">1st Author</span><span class="r-badge year1">Year 1</span></div>
     <div><div class="research-title">Exploratory Data Analysis on Bus Travel Records</div><div class="research-venue">ICIDDM 2K25 — Springer, SRM IST Tiruchirappalli</div><div class="research-desc">Analyzed dynamic bus ticket pricing patterns across festival vs. non-festival periods in Tamil Nadu using 5+ variables: travel date, bus type, demand fluctuation, operator type, and ticket anomalies. Engineered visualizations supporting policy decisions on fare transparency. Published in Springer ICIDDM 2K25 proceedings.</div><div class="research-tools"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Statistical Analysis</span></div></div>
   </div>
@@ -423,25 +549,25 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="achievements">
   <div class="reveal">
     <div class="section-label">05 — Achievements</div>
-    <h2 class="section-title">Recognition</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Recognition</h2><div class="title-underline"></div></div>
     <p class="section-sub">Competitions, certifications, and milestones.</p>
   </div>
   <div class="achievements-grid">
-    <div class="ach-card stagger-child"><div class="ach-icon">🏛️</div><div><div class="ach-title">MSME Idea Hackathon 5.0</div><div class="ach-sub">Idea selected for evaluation at Kongunadu College of Engineering &amp; Technology (Host Institute) under KNIIF, Ministry of MSME, Govt. of India · Aug 2025</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🏆</div><div><div class="ach-title">TCS CodeVita Season 13</div><div class="ach-sub">Qualified in Asia's largest competitive programming contest.</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🚀</div><div><div class="ach-title">IIT Kharagpur — The Arch</div><div class="ach-sub">Led a 3-member team to build MediQuery, Healthcare Track hackathon.</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">📚</div><div><div class="ach-title">Springer ICIDDM 2K25</div><div class="ach-sub">First-authored research paper as a 1st-year student.</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🛸</div><div><div class="ach-title">India Space Lab Intern</div><div class="ach-sub">Selected among ~500 nationally · NASA, JAXA, UN-GGIM Affiliated.</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">📊</div><div><div class="ach-title">IBM Cognos Certification</div><div class="ach-sub">AdroIT Technologies · Dec 2025 – Feb 2026</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🐍</div><div><div class="ach-title">Python Full Stack Dev</div><div class="ach-sub">Certified by Vinsup Infotech · 2025</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🎨</div><div><div class="ach-title">UI/UX Design Cert</div><div class="ach-sub">Certified by Vinsup Infotech · 2025</div></div></div>
-    <div class="ach-card stagger-child"><div class="ach-icon">🧮</div><div><div class="ach-title">DSA — NPTEL Certified</div><div class="ach-sub">222 LeetCode problems · Python</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🏛️</div><div><div class="ach-title">MSME Idea Hackathon 5.0</div><div class="ach-sub">Idea selected for evaluation at Kongunadu College of Engineering &amp; Technology (Host Institute) under KNIIF, Ministry of MSME, Govt. of India · Aug 2025</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🏆</div><div><div class="ach-title">TCS CodeVita Season 13</div><div class="ach-sub">Qualified in Asia's largest competitive programming contest.</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🚀</div><div><div class="ach-title">IIT Kharagpur — The Arch</div><div class="ach-sub">Led a 3-member team to build MediQuery, Healthcare Track hackathon.</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">📚</div><div><div class="ach-title">Springer ICIDDM 2K25</div><div class="ach-sub">First-authored research paper as a 1st-year student.</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🛸</div><div><div class="ach-title">India Space Lab Intern</div><div class="ach-sub">Selected among ~500 nationally · NASA, JAXA, UN-GGIM Affiliated.</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">📊</div><div><div class="ach-title">IBM Cognos Certification</div><div class="ach-sub">AdroIT Technologies · Dec 2025 – Feb 2026</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🐍</div><div><div class="ach-title">Python Full Stack Dev</div><div class="ach-sub">Certified by Vinsup Infotech · 2025</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🎨</div><div><div class="ach-title">UI/UX Design Cert</div><div class="ach-sub">Certified by Vinsup Infotech · 2025</div></div></div>
+    <div class="ach-card stagger-child tilt-card"><div class="ach-icon">🧮</div><div><div class="ach-title">DSA — NPTEL Certified</div><div class="ach-sub">222 LeetCode problems · Python</div></div></div>
   </div>
 </section>
 <section id="contact">
   <div class="reveal">
     <div class="section-label">06 — Contact</div>
-    <h2 class="section-title">Let's Build Together</h2>
+    <div class="section-title-wrap"><h2 class="section-title">Let's Build Together</h2><div class="title-underline"></div></div>
     <p class="section-sub">Open to AI Engineer internships, research collaborations, and hackathon teams.</p>
   </div>
   <div class="contact-wrapper">
@@ -574,6 +700,260 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
+
+/* ===== ADVANCED MOTION SCRIPT ===== */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Hero name char-by-char reveal */
+(function(){
+  const nameLine1 = document.querySelector('.hero-name');
+  if(!nameLine1) return;
+  const line2 = nameLine1.querySelector('.hero-name-line2');
+  const rawText = 'Vishva M';
+  // Clear and rebuild with spans, preserving the amber line2 span for "M"
+  nameLine1.innerHTML = '';
+  const vibrateWrap = document.createElement('span');
+  vibrateWrap.className = 'name-vibrate-wrap';
+  const first = document.createElement('span');
+  first.textContent = '';
+  vibrateWrap.appendChild(first);
+  const chars = 'Vishva'.split('');
+  let delay = 0;
+  chars.forEach((ch,i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
+    span.style.animationDelay = (0.5 + i*0.045) + 's';
+    vibrateWrap.appendChild(span);
+  });
+  vibrateWrap.appendChild(document.createTextNode(' '));
+  const line2Span = document.createElement('span');
+  line2Span.className = 'hero-name-line2';
+  const mSpan = document.createElement('span');
+  mSpan.className = 'char';
+  mSpan.textContent = 'M';
+  mSpan.style.animationDelay = (0.5 + chars.length*0.045 + 0.08) + 's';
+  line2Span.appendChild(mSpan);
+  vibrateWrap.appendChild(line2Span);
+  nameLine1.appendChild(vibrateWrap);
+})();
+
+/* Cursor glow (large soft radial that follows pointer) */
+if(!prefersReduced){
+  const glow = document.getElementById('cursorGlow');
+  let glowActive = false;
+  document.addEventListener('mousemove', e => {
+    glow.style.transform = 'translate('+e.clientX+'px,'+e.clientY+'px) translate(-50%,-50%)';
+    if(!glowActive){ glow.classList.add('active'); glowActive = true; }
+  });
+  document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+}
+
+/* Tilt effect for cards */
+if(!prefersReduced){
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotY = px * 8;
+      const rotX = -py * 8;
+      card.style.transform = 'perspective(900px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(900px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+}
+
+/* Magnetic buttons */
+if(!prefersReduced){
+  document.querySelectorAll('.btn-primary, .btn-outline, .nav-cta').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const mx = (e.clientX - rect.left - rect.width/2) * 0.25;
+      const my = (e.clientY - rect.top - rect.height/2) * 0.35;
+      btn.style.transform = 'translate('+mx+'px,'+my+'px)';
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+    btn.addEventListener('click', function(e){
+      const rect = this.getBoundingClientRect();
+      const r = document.createElement('span');
+      r.className = 'ripple';
+      const size = Math.max(rect.width, rect.height) * 1.2;
+      r.style.width = r.style.height = size+'px';
+      r.style.left = (e.clientX - rect.left - size/2)+'px';
+      r.style.top = (e.clientY - rect.top - size/2)+'px';
+      this.appendChild(r);
+      setTimeout(()=>r.remove(), 650);
+    });
+  });
+}
+
+/* Timeline draw-on-scroll progress line */
+(function(){
+  const wrap = document.getElementById('timelineWrap');
+  const prog = document.getElementById('timelineProgress');
+  if(!wrap || !prog) return;
+  function updateTimeline(){
+    const rect = wrap.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = rect.height;
+    let visible = vh * 0.75 - rect.top;
+    visible = Math.max(0, Math.min(total, visible));
+    prog.style.height = visible + 'px';
+  }
+  window.addEventListener('scroll', updateTimeline, {passive:true});
+  window.addEventListener('resize', updateTimeline);
+  updateTimeline();
+})();
+
+/* Section title underline reveal observer */
+const titleObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.4});
+document.querySelectorAll('.section-title-wrap').forEach(t => titleObs.observe(t));
+
+/* Subtle parallax on mesh blobs while scrolling */
+if(!prefersReduced){
+  const blobs = document.querySelectorAll('.mesh-blob');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    blobs.forEach((b,i) => { b.style.marginTop = (y * (0.03 + i*0.02)) + 'px'; });
+  }, {passive:true});
+}
+
+/* ===== ANIMATED STARFIELD ===== */
+(function(){
+  const canvas = document.getElementById('starCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, DPR;
+  let stars = [];
+  let shootingStars = [];
+  let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+  let scrollParallax = 0;
+
+  const STAR_COLORS = ['255,255,255', '240,165,0', '0,212,255', '255,190,60'];
+
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    initStars();
+  }
+
+  function initStars(){
+    const count = Math.min(220, Math.floor((W*H)/8500));
+    stars = [];
+    for(let i=0;i<count;i++){
+      const layer = Math.random(); // depth: 0 = far/small/slow, 1 = near/big/fast
+      stars.push({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: 0.4 + layer*1.6 + Math.random()*0.5,
+        baseAlpha: 0.25 + Math.random()*0.55,
+        phase: Math.random()*Math.PI*2,
+        twinkleSpeed: 0.4 + Math.random()*1.1,
+        depth: 0.15 + layer*0.7,
+        color: STAR_COLORS[Math.random() < 0.82 ? 0 : Math.floor(Math.random()*STAR_COLORS.length)],
+        driftX: (Math.random()-0.5)*0.04,
+        driftY: (Math.random()-0.5)*0.02
+      });
+    }
+  }
+
+  function maybeSpawnShootingStar(){
+    if(prefersReduced) return;
+    if(Math.random() < 0.006 && shootingStars.length < 2){
+      const startX = Math.random()*W*0.6 + W*0.2;
+      const startY = Math.random()*H*0.3;
+      const angle = Math.PI/4 + (Math.random()-0.5)*0.3;
+      const speed = 9 + Math.random()*6;
+      shootingStars.push({
+        x:startX, y:startY,
+        vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed,
+        life: 0, maxLife: 45 + Math.random()*20,
+        len: 70 + Math.random()*60
+      });
+    }
+  }
+
+  let t = 0;
+  function draw(){
+    t += 1;
+    ctx.clearRect(0,0,W,H);
+
+    const px = (targetMouseX - W/2) / W;
+    const py = (targetMouseY - H/2) / H;
+
+    for(const s of stars){
+      s.phase += 0.016 * s.twinkleSpeed;
+      const twinkle = 0.55 + 0.45*Math.sin(s.phase);
+      const alpha = s.baseAlpha * twinkle;
+
+      s.x += s.driftX;
+      s.y += s.driftY;
+      if(s.x < -5) s.x = W+5; if(s.x > W+5) s.x = -5;
+      if(s.y < -5) s.y = H+5; if(s.y > H+5) s.y = -5;
+
+      const offsetX = px * 22 * s.depth + scrollParallax * 0.02 * s.depth;
+      const offsetY = py * 14 * s.depth;
+      const drawX = s.x + offsetX;
+      const drawY = s.y + offsetY;
+
+      ctx.beginPath();
+      const grad = ctx.createRadialGradient(drawX, drawY, 0, drawX, drawY, s.r*3);
+      grad.addColorStop(0, 'rgba('+s.color+','+alpha+')');
+      grad.addColorStop(1, 'rgba('+s.color+',0)');
+      ctx.fillStyle = grad;
+      ctx.arc(drawX, drawY, s.r*3, 0, Math.PI*2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba('+s.color+','+Math.min(1,alpha+0.25)+')';
+      ctx.arc(drawX, drawY, s.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    maybeSpawnShootingStar();
+    shootingStars.forEach((sh, i) => {
+      sh.x += sh.vx; sh.y += sh.vy; sh.life++;
+      const progress = sh.life / sh.maxLife;
+      const fade = progress < 0.15 ? progress/0.15 : (1 - (progress-0.15)/0.85);
+      const tailX = sh.x - sh.vx*(sh.len/Math.hypot(sh.vx,sh.vy));
+      const tailY = sh.y - sh.vy*(sh.len/Math.hypot(sh.vx,sh.vy));
+      const grd = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
+      grd.addColorStop(0, 'rgba(255,255,255,'+Math.max(0,fade)+')');
+      grd.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.strokeStyle = grd;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.moveTo(sh.x, sh.y);
+      ctx.lineTo(tailX, tailY);
+      ctx.stroke();
+      if(sh.life > sh.maxLife || sh.x > W+80 || sh.y > H+80) shootingStars.splice(i,1);
+    });
+
+    targetMouseX += (mouseX - targetMouseX) * 0.05;
+    targetMouseY += (mouseY - targetMouseY) * 0.05;
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+  window.addEventListener('scroll', () => { scrollParallax = window.scrollY; }, {passive:true});
+  window.addEventListener('resize', resize);
+  mouseX = window.innerWidth/2; mouseY = window.innerHeight/2;
+  targetMouseX = mouseX; targetMouseY = mouseY;
+  resize();
+  draw();
+})();
 function sendMessage(){
   const name=document.getElementById('contactName').value.trim();
   const email=document.getElementById('contactEmail').value.trim();

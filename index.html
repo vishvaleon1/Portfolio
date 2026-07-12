@@ -259,12 +259,11 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 .tilt-card{transform-style:preserve-3d;transition:transform 0.15s cubic-bezier(.2,.8,.2,1),border-color 0.3s,box-shadow 0.3s;will-change:transform}
 .tilt-card-inner{transform:translateZ(24px)}
 
-.hero-name .char{display:inline-block;opacity:0;transform:translateY(0.6em) rotateX(-40deg);animation:charReveal 0.7s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes charReveal{to{opacity:1;transform:translateY(0) rotateX(0)}}
 
-.section-title-wrap{position:relative;display:inline-block}
-.title-underline{position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--amber),var(--amber2));transition:width 1s cubic-bezier(.2,.8,.2,1)}
-.section-title-wrap.visible .title-underline{width:100%}
+
+.section-title{position:relative;display:inline-block}
+.section-title::after{content:'';position:absolute;left:0;bottom:-8px;height:2px;width:0;background:linear-gradient(90deg,var(--amber),var(--amber2));transition:width 1s cubic-bezier(.2,.8,.2,1) 0.15s}
+.reveal.visible .section-title::after{width:100%}
 
 .timeline::before{background:var(--border)}
 .timeline-progress{position:absolute;left:16px;top:8px;width:1px;height:0;background:linear-gradient(to bottom,var(--amber),var(--amber2));transition:height 1.6s cubic-bezier(.2,.8,.2,1);z-index:0;box-shadow:0 0 8px rgba(240,165,0,0.5)}
@@ -326,32 +325,17 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 .hero-name-line2{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2),var(--amber));background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientFlow 6s ease infinite}
 .section-label{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2),var(--amber));background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientFlow 7s ease infinite}
 .section-label::after{background:linear-gradient(90deg,var(--amber),var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 7s ease infinite}
-.title-underline{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 4s ease infinite}
+.section-title::after{background:linear-gradient(90deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 4s ease infinite}
 .btn-primary{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
 .btn-primary::before{display:none}
 .nav-cta{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
 .form-btn{background:linear-gradient(100deg,var(--amber),#ffd479,var(--cyan),var(--amber2));background-size:300% auto;animation:gradientFlow 5s ease infinite}
 .r-badge.springer{background:linear-gradient(90deg,rgba(255,140,0,0.15),rgba(0,212,255,0.1),rgba(255,140,0,0.15));background-size:300% auto;animation:gradientFlow 6s ease infinite}
 @media (prefers-reduced-motion: reduce){
-  .gradient-text,.hero-name-line2,.section-label,.section-label::after,.title-underline,.btn-primary,.nav-cta,.form-btn,.r-badge.springer{animation:none}
+  .gradient-text,.hero-name-line2,.section-label,.section-label::after,.section-title::after,.btn-primary,.nav-cta,.form-btn,.r-badge.springer{animation:none}
 }
 
-/* ===== NAME VIBRATION (glitch tic) ===== */
-.name-vibrate-wrap{display:inline-block;animation:nameVibrate 4.6s ease-in-out infinite 2.6s}
-@keyframes nameVibrate{
-  0%,89%,100%{transform:translate(0,0);text-shadow:none}
-  90%{transform:translate(-2px,1px);text-shadow:-2px 0 rgba(0,212,255,0.6),2px 0 rgba(240,165,0,0.6)}
-  91%{transform:translate(2px,-1px);text-shadow:2px 0 rgba(0,212,255,0.6),-2px 0 rgba(240,165,0,0.6)}
-  92%{transform:translate(-1px,-2px);text-shadow:-1px 0 rgba(0,212,255,0.6),1px 0 rgba(240,165,0,0.6)}
-  93%{transform:translate(1px,2px);text-shadow:1px 0 rgba(0,212,255,0.5),-1px 0 rgba(240,165,0,0.5)}
-  94%{transform:translate(-2px,0);text-shadow:-2px 0 rgba(0,212,255,0.5),2px 0 rgba(240,165,0,0.5)}
-  95%{transform:translate(2px,1px);text-shadow:1px 0 rgba(0,212,255,0.4),-1px 0 rgba(240,165,0,0.4)}
-  96%{transform:translate(0,-1px);text-shadow:none}
-  97%,98%{transform:translate(0,0);text-shadow:none}
-}
-@media (prefers-reduced-motion: reduce){
-  .name-vibrate-wrap{animation:none}
-}
+/* ===== NAME VIBRATION restored via .glitch class on hero-name (see original glitch1/glitch2 keyframes above) ===== */
 </style>
 </head>
 <body>
@@ -397,7 +381,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>Available for Internships · Madurai, India</div>
-      <h1 class="hero-name" data-text="Vishva M">Vishva <span class="hero-name-line2"></span></h1>
+      <h1 class="hero-name glitch" data-text="Vishva M">Vishva <span class="hero-name-line2">M</span></h1>
       <div class="hero-roles"><span id="typed-text"></span><span class="cursor-blink"></span></div>
       <p class="hero-desc">Final-year B.Tech AI &amp; Data Science student targeting AI Engineer roles focused on LLM systems, RAG architectures, and MLOps. I build deployed products, publish research, and lead teams — from agentic RAG pipelines powering national hackathons to full-stack platforms used by entire institutions.</p>
       <div class="hero-stats">
@@ -463,7 +447,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="about">
   <div class="reveal">
     <div class="section-label">01 — About</div>
-    <div class="section-title-wrap"><h2 class="section-title">Who I Am</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Who I Am</h2>
     <p class="section-sub">Builder, researcher, and team lead studying AI &amp; Data Science at SRM Madurai.</p>
   </div>
   <div class="about-grid">
@@ -509,7 +493,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="experience">
   <div class="reveal">
     <div class="section-label">02 — Experience</div>
-    <div class="section-title-wrap"><h2 class="section-title">Where I've Worked</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Where I've Worked</h2>
     <p class="section-sub">Four internships across space tech, enterprise BI, data analytics, and full-stack — before graduating.</p>
   </div>
   <div class="timeline" id="timelineWrap">
@@ -523,7 +507,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="projects">
   <div class="reveal">
     <div class="section-label">03 — Projects</div>
-    <div class="section-title-wrap"><h2 class="section-title">Things I've Built</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Things I've Built</h2>
     <p class="section-sub">Real code. Real deployment. Real impact.</p>
   </div>
   <div class="projects-grid">
@@ -538,7 +522,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="research">
   <div class="reveal">
     <div class="section-label">04 — Research</div>
-    <div class="section-title-wrap"><h2 class="section-title">Published Work</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Published Work</h2>
     <p class="section-sub">First-authored a Springer publication as a first-year B.Tech student.</p>
   </div>
   <div class="research-card reveal tilt-card">
@@ -549,7 +533,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="achievements">
   <div class="reveal">
     <div class="section-label">05 — Achievements</div>
-    <div class="section-title-wrap"><h2 class="section-title">Recognition</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Recognition</h2>
     <p class="section-sub">Competitions, certifications, and milestones.</p>
   </div>
   <div class="achievements-grid">
@@ -567,7 +551,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 <section id="contact">
   <div class="reveal">
     <div class="section-label">06 — Contact</div>
-    <div class="section-title-wrap"><h2 class="section-title">Let's Build Together</h2><div class="title-underline"></div></div>
+    <h2 class="section-title">Let's Build Together</h2>
     <p class="section-sub">Open to AI Engineer internships, research collaborations, and hackathon teams.</p>
   </div>
   <div class="contact-wrapper">
@@ -704,40 +688,6 @@ function closeMenu(){document.getElementById('mobileMenu').classList.remove('ope
 /* ===== ADVANCED MOTION SCRIPT ===== */
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Hero name char-by-char reveal */
-(function(){
-  const nameLine1 = document.querySelector('.hero-name');
-  if(!nameLine1) return;
-  const line2 = nameLine1.querySelector('.hero-name-line2');
-  const rawText = 'Vishva M';
-  // Clear and rebuild with spans, preserving the amber line2 span for "M"
-  nameLine1.innerHTML = '';
-  const vibrateWrap = document.createElement('span');
-  vibrateWrap.className = 'name-vibrate-wrap';
-  const first = document.createElement('span');
-  first.textContent = '';
-  vibrateWrap.appendChild(first);
-  const chars = 'Vishva'.split('');
-  let delay = 0;
-  chars.forEach((ch,i) => {
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = ch === ' ' ? '\u00A0' : ch;
-    span.style.animationDelay = (0.5 + i*0.045) + 's';
-    vibrateWrap.appendChild(span);
-  });
-  vibrateWrap.appendChild(document.createTextNode(' '));
-  const line2Span = document.createElement('span');
-  line2Span.className = 'hero-name-line2';
-  const mSpan = document.createElement('span');
-  mSpan.className = 'char';
-  mSpan.textContent = 'M';
-  mSpan.style.animationDelay = (0.5 + chars.length*0.045 + 0.08) + 's';
-  line2Span.appendChild(mSpan);
-  vibrateWrap.appendChild(line2Span);
-  nameLine1.appendChild(vibrateWrap);
-})();
-
 /* Cursor glow (large soft radial that follows pointer) */
 if(!prefersReduced){
   const glow = document.getElementById('cursorGlow');
@@ -807,12 +757,6 @@ if(!prefersReduced){
   window.addEventListener('resize', updateTimeline);
   updateTimeline();
 })();
-
-/* Section title underline reveal observer */
-const titleObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold:0.4});
-document.querySelectorAll('.section-title-wrap').forEach(t => titleObs.observe(t));
 
 /* Subtle parallax on mesh blobs while scrolling */
 if(!prefersReduced){
